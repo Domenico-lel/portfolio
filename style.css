@@ -78,7 +78,8 @@ section{
 }
 
 .text-contain > p{
-    margin-bottom: 2%;
+    margin-bottom: 3%;
+    font-size: 2.1rem !important;
 }
 
 .home-content h3{
@@ -262,6 +263,10 @@ span{
     width: 100%;
     transition: .5s ease;
     opacity: 0.7;
+}
+
+.portfolio-box a{
+    color: var(--text-color);
 }
 
 .portfolio-box:hover img{
@@ -491,6 +496,11 @@ span{
 
     .portfolio-container{
         grid-template-columns: repeat(2, 1fr);
+    }
+
+    .text-contain > p{
+        font-size: 2.9rem !important;
+        margin-bottom: 19px !important;
     }
 }
 
