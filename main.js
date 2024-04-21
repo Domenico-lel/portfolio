@@ -34,3 +34,15 @@ window.onscroll = () => {
     menuIcon.classList.remove('fa-xmark');
     navbar.classList.remove('active');
 };
+
+// scroll reveal
+scrollReveal({
+    distance:'80px',
+    duration:'2000',
+    deley:'200',
+});
+
+scrollReveal().reveal('.home-content, heading', {origin:'top'});
+scrollReveal().reveal('.home-img, services-container, .portfolio-box, .contact-form', {origin: 'top'});
+scrollReveal().reveal('.home-contact h1, .about-img', {origin: 'left'});
+scrollReveal().reveal('.home-contact p, .about-content' {origin: 'right'});
