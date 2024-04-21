@@ -35,15 +35,14 @@ window.onscroll = () => {
     navbar.classList.remove('active');
 };
 
+// scroll reveal
 document.addEventListener('DOMContentLoaded', function () {
-    // Inizializza scrollReveal con le opzioni desiderate
     const sr = ScrollReveal({
         distance: '80px',
         duration: '2000',
         delay: '200',
     });
 
-    // Applica le animazioni di scrollReveal a ciascun elemento desiderato
     sr.reveal('.home-content, .heading', { origin: 'top' });
     sr.reveal('.home-img, .services-container, .portfolio-box, .contact-form', { origin: 'top' });
     sr.reveal('.home-contact h1, .about-img', { origin: 'left' });
@@ -52,8 +51,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
 // typed js
 
-const typed = new Typed('multiple-text',{
-    strings: ['Frontend Developer', 'Web Designer'],
+const typed = new Typed('#multiple-text',{
+    strings: ['Frontend Developer', 'Web Designer', 'UX/UI Designer', 'Full Stack Developer'],
     typeSpeed: 70,
     backSpeed: 70,
     backDelay: 100,

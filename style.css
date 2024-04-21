@@ -77,6 +77,10 @@ section{
     align-items: center;
 }
 
+.text-contain > p{
+    margin-bottom: 2%;
+}
+
 .home-content h3{
     font-size: 3.2rem;
     font-weight: 700;
@@ -307,6 +311,10 @@ span{
 .portfolio-layer a i{
     font-size: 2rem;
     color: var(--snd-bg-color);
+}
+
+.portfolio-layer i{
+    font-size: 350%;
 }
 
 .contact h2{
