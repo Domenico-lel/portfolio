@@ -1,6 +1,6 @@
 // toggle icon navbar
 let menuIcon = document.querySelector('#menu-icon');
-let navbar = document.querySelector('#navbar');
+let navbar = document.querySelector('.navbar');
 
 menuIcon.onclick = () => {
     menuIcon.classList.toggle('fa-xmark');
@@ -21,8 +21,8 @@ window.onscroll = () => {
         if (top >= offset && top < offset + height) {
             navLinks.forEach(link => {
                 link.classList.remove('active');
+                document.querySelector('header nav a[href="#' + id + '"]').classList.add('active');
             });
-            document.querySelector('header nav a[href="#' + id + '"]').classList.add('active');
         };
     });
 
