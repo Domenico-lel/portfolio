@@ -58,3 +58,10 @@ const typed = new Typed('#multiple-text',{
     backDelay: 100,
     loop: true,
 });
+
+// "Read more" button action
+document.querySelector('.read-more').addEventListener('click', function() {
+    // Show full text and hide "Read more" button
+    document.querySelector('.full-text').style.display = 'block';
+    this.style.display = 'none';
+});
