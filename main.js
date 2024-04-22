@@ -59,9 +59,16 @@ const typed = new Typed('#multiple-text',{
     loop: true,
 });
 
-// "Read more" button action
-document.querySelector('.read-more').addEventListener('click', function() {
+// "Read more" button action for the About section
+document.querySelector('.about .read-more').addEventListener('click', function() {
     // Show full text and hide "Read more" button
-    document.querySelector('.full-text').style.display = 'block';
+    document.querySelector('.about .full-text').style.display = 'block';
+    this.style.display = 'none';
+});
+
+// "Read more" button action for the Home section
+document.querySelector('.home .read-more').addEventListener('click', function() {
+    // Show full text and hide "Read more" button
+    document.querySelector('.home .full-text').style.display = 'block';
     this.style.display = 'none';
 });
