@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 // typed js
 
-const typed = new Typed('#multiple-text',{
+const typed = new Typed('#multiple-text', {
     strings: ['Frontend Developer', 'Web Designer', 'UX/UI Designer', 'Full Stack Developer'],
     typeSpeed: 70,
     backSpeed: 70,
@@ -60,14 +60,14 @@ const typed = new Typed('#multiple-text',{
 });
 
 // "Read more" button action for the About section
-document.querySelector('.about .read-more').addEventListener('click', function() {
+document.querySelector('.about .read-more').addEventListener('click', function () {
     // Show full text and hide "Read more" button
     document.querySelector('.about .full-text').style.display = 'block';
     this.style.display = 'none';
 });
 
 // "Read more" button action for the Home section
-document.querySelector('.home .read-more').addEventListener('click', function() {
+document.querySelector('.home .read-more').addEventListener('click', function () {
     // Show full text and hide "Read more" button
     document.querySelector('.home .full-text').style.display = 'block';
     this.style.display = 'none';
