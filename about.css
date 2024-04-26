@@ -215,6 +215,7 @@ body {
     top: 0;
     left: 0;
     margin: 20px;
+    padding: 20px;
     z-index: 3;
 
 }
@@ -230,6 +231,10 @@ body {
         grid-gap: 20px;
     }
 
+    #back i{
+        font-size: 55px;
+    }
+
 }
 
 @media (max-width: 868px){
@@ -239,7 +244,7 @@ body {
                              'skillSect skillSect';
     }
     #back i{
-        font-size: 35px;
+        font-size: 57px;
     }
 
 }
