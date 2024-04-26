@@ -71,3 +71,17 @@ document.querySelector('.about .read-more').addEventListener('click', function (
     // Redirect to another HTML page when the button is clicked
     window.location.href = "about.html";
 });
+
+
+// Controllo se la pagina è stata aperta da un'altra pagina
+if (document.referrer !== "") {
+    // Creazione del pulsante "Torna Indietro"
+    let backButton = document.createElement('button');
+    backButton.textContent = 'Torna Indietro';
+    backButton.addEventListener('click', function() {
+        window.history.back();
+    });
+    
+    // Aggiunta del pulsante al documento
+    document.body.appendChild(backButton);
+}
