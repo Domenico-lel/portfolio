@@ -99,7 +99,9 @@ body {
     font-family: Helvetica;
     font-size: 20px;
     font-weight: 600;
-    color: #787cb5;
+    color: var(--main-color);
+    padding-bottom: 7px;
+    padding-top: 7px;
 }
 
 .infosaction p{
