@@ -164,6 +164,7 @@ span {
     letter-spacing: .1rem;
     font-weight: 600;
     transition: .5s ease;
+    margin-right: 8px;
 }
 
 .btn:hover {
@@ -430,7 +431,7 @@ span {
     .full-text>p,
     .small-text>p,
     .read-more {
-        font-size: 3.5rem !important;
+        font-size: 3.5rem;
     }
 
     .services {
@@ -509,7 +510,8 @@ span {
 
     .full-text>p,
     .small-text p,
-    .read-more {
+    .read-more,
+    .my-skill {
         font-size: 2.5rem;
     }
 

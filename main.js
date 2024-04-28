@@ -85,3 +85,10 @@ if (document.referrer !== "") {
     // Aggiunta del pulsante al documento
     document.body.appendChild(backButton);
 }
+
+
+// "Me🙂" button action for the About section
+document.querySelector('.about .my-skill').addEventListener('click', function () {
+    // Redirect to another HTML page when the button is clicked
+    window.location.href = "me.html";
+});
