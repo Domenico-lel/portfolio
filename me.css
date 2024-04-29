@@ -1,9 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
+#back{
+    box-sizing:content-box ;
+}
+
 #back i{
     position:fixed;
+    font-size: xx-large;
     top: 0;
-    left: 0;
+    right: 0;
     margin: 20px;
     padding: 20px;
     z-index: 3;
@@ -60,7 +65,7 @@ a{
     line-height: 1.3em;
 }
 .slider .list .item .type{
-    color: #14ff72cb;
+    color: #59B2F4;
 }
 .slider .list .item .button{
     display: grid;
@@ -133,7 +138,7 @@ a{
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background-color: #14ff72cb;
+    background-color: #59B2F4;
     border: none;
     color: #fff;
     font-family: monospace;
@@ -162,6 +167,7 @@ a{
     filter: blur(20px);
     opacity: 0;
     animation: showContent .5s 1s linear 1 forwards;
+    font-weight: bold;
 }
 @keyframes showContent{
     to{
@@ -276,6 +282,10 @@ a{
     animation: contentOut 1.5s linear 1 forwards!important;
 }
 
+img[src="./src/img-viaggi/photo_2024-04-29_20-47-06.jpg"] {
+    object-fit:cover !important;
+  }
+
 @keyframes contentOut{
     to{
         transform: translateY(-150px);
@@ -290,4 +300,18 @@ a{
     .slider .list .item .content .title{
         font-size: 50px;
     }
+
+    .content{
+        margin-top: -140px;
+    }
+
+    .description{
+        font-weight: bold;
+        
+    }
+
+    #back i {
+        font-size: 39px;
+    }
+
 }
