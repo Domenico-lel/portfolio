@@ -50,7 +50,6 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 // typed js
-
 const typed = new Typed('#multiple-text', {
     strings: ['Frontend Developer', 'Web Designer', 'UX/UI Designer', 'Full Stack Developer'],
     typeSpeed: 70,
@@ -72,7 +71,6 @@ document.querySelector('.about .read-more').addEventListener('click', function (
     window.location.href = "about.html";
 });
 
-
 // Controllo se la pagina è stata aperta da un'altra pagina
 if (document.referrer !== "") {
     // Creazione del pulsante "Torna Indietro"
@@ -86,9 +84,40 @@ if (document.referrer !== "") {
     document.body.appendChild(backButton);
 }
 
-
 // "Me🙂" button action for the About section
 document.querySelector('.about .my-skill').addEventListener('click', function () {
     // Redirect to another HTML page when the button is clicked
     window.location.href = "me.html";
+});
+
+// Validazione del form
+document.querySelector('form').addEventListener('submit', function (e) {
+    let inputs = this.querySelectorAll('input, textarea');
+    let isValid = true;
+    let errorMessage = '';
+
+    inputs.forEach(input => {
+        if (!input.value.trim()) {
+            isValid = false;
+            errorMessage = 'Per favore compila tutti i campi.';
+            input.style.border = '2px solid red';
+        } else {
+            input.style.border = '';
+        }
+    });
+
+    if (!isValid) {
+        e.preventDefault();
+        // Mostra un messaggio di errore
+        let errorDiv = document.querySelector('.error-message');
+        if (!errorDiv) {
+            errorDiv = document.createElement('div');
+            errorDiv.classList.add('error-message');
+            errorDiv.style.color = 'red';
+            errorDiv.style.marginTop = '10px';
+            // Aggiungi il messaggio di errore prima del form
+            this.parentNode.insertBefore(errorDiv, this);
+        }
+        errorDiv.textContent = errorMessage;
+    }
 });

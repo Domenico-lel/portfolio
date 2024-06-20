@@ -411,6 +411,10 @@ span {
     color: var(--snd-bg-color);
 }
 
+.error-message {
+    font-size: large;
+    text-align: center;
+}
 /* BREACKPOINT */
 
 @media (max-width: 1200px) {
