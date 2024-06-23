@@ -99,7 +99,7 @@ document.querySelector('form').addEventListener('submit', function (e) {
     inputs.forEach(input => {
         if (!input.value.trim()) {
             isValid = false;
-            errorMessage = 'Per favore compila tutti i campi.';
+            errorMessage = 'Compila tutti i campi.';
             input.style.border = '2px solid red';
         } else {
             input.style.border = '';
