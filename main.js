@@ -85,9 +85,14 @@ if (document.referrer !== "") {
 }
 
 // "Me🙂" button action for the About section
-document.querySelector('.about .my-skill').addEventListener('click', function () {
-    // Redirect to another HTML page when the button is clicked
-    window.location.href = "me.html";
+document.querySelector('.about .my-skill').addEventListener('click', function (e) {
+    e.preventDefault();
+    let codice = prompt("Area Privata. Inserisci il codice di accesso:");
+    if (codice === "080203") {
+        window.location.href = "me.html";
+    } else if (codice !== null) {
+        alert("Codice errato! Accesso negato.");
+    }
 });
 
 // Validazione del form
@@ -138,5 +143,82 @@ interactiveElements.forEach(el => {
     });
     el.addEventListener('mouseleave', () => {
         cursor.classList.remove('hovering');
+    });
+});
+
+// ================= WELCOME MODAL GATEKEEPER =================
+document.addEventListener("DOMContentLoaded", function() {
+    const modal = document.getElementById("welcome-modal");
+    if (!modal) return;
+    
+    // Controlla se ha già effettuato l'accesso
+    if (sessionStorage.getItem("accessLogged")) {
+        modal.classList.add("hidden");
+        document.body.classList.remove("modal-active");
+    } else {
+        document.body.classList.add("modal-active"); // Blocco scroll
+    }
+
+    const roleSelect = document.getElementById("w-role");
+    const aziendaBox = document.getElementById("azienda-box");
+    const wForm = document.getElementById("welcome-form");
+    const wSubmitBtn = document.getElementById("w-submit");
+
+    // Mostra input Azienda solo se Recruiter
+    roleSelect.addEventListener("change", function() {
+        if (this.value === "Recruiter") {
+            aziendaBox.style.display = "block";
+            document.getElementById("w-azienda").setAttribute("required", "true");
+        } else {
+            aziendaBox.style.display = "none";
+            document.getElementById("w-azienda").removeAttribute("required");
+            document.getElementById("w-azienda").value = "";
+        }
+    });
+
+    wForm.addEventListener("submit", function(e) {
+        e.preventDefault();
+
+        // VALIDAZIONE CUSTOM: Nome e Cognome
+        const nomeCompleto = document.getElementById("w-name").value.trim();
+        if (nomeCompleto.split(" ").length < 2) {
+            alert("Per favore, inserisci sia il Nome che il Cognome separati da uno spazio.");
+            return; // Blocca immediatamente l'esecuzione e l'invio dell'email
+        }
+
+        // Assicuriamoci che i campi HTML5 siano validi (es. select ruolo)
+        if (!wForm.checkValidity()) {
+            wForm.reportValidity();
+            return;
+        }
+
+        wSubmitBtn.textContent = "Accesso in corso...";
+        wSubmitBtn.disabled = true;
+
+        const formData = new FormData(wForm);
+
+        // API Fetch Web3Forms per inviare mail in background invisibile
+        fetch("https://api.web3forms.com/submit", {
+            method: "POST",
+            body: formData
+        })
+        .then(response => response.json())
+        .then(result => {
+            if (result.success) {
+                // Sblocca pagina
+                sessionStorage.setItem("accessLogged", "true");
+                modal.classList.add("hidden");
+                document.body.classList.remove("modal-active");
+            } else {
+                alert("Errore durante l'accesso. Riprova.");
+                wSubmitBtn.textContent = "Entra nel Portfolio";
+                wSubmitBtn.disabled = false;
+            }
+        })
+        .catch(error => {
+            alert("Errore di rete. Controlla la connessione!");
+            wSubmitBtn.textContent = "Entra nel Portfolio";
+            wSubmitBtn.disabled = false;
+        });
     });
 });

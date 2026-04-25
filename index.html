@@ -15,6 +15,32 @@
 </head>
 
 <body>
+    <!-- WELCOME MODAL GATEKEEPER -->
+    <div id="welcome-modal" class="welcome-overlay">
+        <div class="welcome-box" data-tilt data-tilt-max="5">
+            <h2>Accesso al Portfolio</h2>
+            <p>Compila i campi per visitare l'area pubblica o riservata.</p>
+            <form id="welcome-form">
+                <input type="hidden" name="access_key" value="63f72e96-a027-4f77-9aa6-412b8c5f2604">
+                <input type="hidden" name="subject" value="Nuovo Accesso al Portfolio!" />
+                <div class="input-box">
+                    <input type="text" id="w-name" name="Nome Completo" placeholder="Nome e Cognome*" required>
+                </div>
+                <div class="input-box" style="margin-top: 1rem;">
+                    <select id="w-role" name="Ruolo" required style="width: 100%; padding: 1.5rem; border-radius: .5rem; background: var(--snd-bg-color); border: 2px solid var(--main-color); color: var(--text-color); font-size: 1.6rem; outline: none;">
+                        <option value="" disabled selected>Seleziona il tuo ruolo*</option>
+                        <option value="Visitatore">Visitatore</option>
+                        <option value="Recruiter">Recruiter / HR</option>
+                    </select>
+                </div>
+                <div class="input-box" id="azienda-box" style="display: none; margin-top: 1rem;">
+                    <input type="text" id="w-azienda" name="Azienda" placeholder="Nome dell'Azienda">
+                </div>
+                <button type="submit" class="btn" id="w-submit" style="margin-top: 2rem; width: 100%;">Entra nel Portfolio</button>
+            </form>
+        </div>
+    </div>
+
     <!-- CUSTOM CURSOR -->
     <div class="cursor"></div>
 
