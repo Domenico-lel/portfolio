@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 // typed js
 const typed = new Typed('#multiple-text', {
-    strings: ['Frontend Developer', 'Web Designer', 'UX/UI Designer', 'Full Stack Developer'],
+    strings: ['Junior IT Support', 'Tecnico Informatico', 'Junior Developer', 'Tech Enthusiast'],
     typeSpeed: 70,
     backSpeed: 70,
     backDelay: 100,
@@ -120,4 +120,23 @@ document.querySelector('form').addEventListener('submit', function (e) {
         }
         errorDiv.textContent = errorMessage;
     }
+});
+
+// --- CUSTOM CURSOR LOGIC ---
+const cursor = document.querySelector('.cursor');
+
+document.addEventListener('mousemove', (e) => {
+    cursor.style.left = e.clientX + 'px';
+    cursor.style.top = e.clientY + 'px';
+});
+
+const interactiveElements = document.querySelectorAll('a, button, input, textarea, .portfolio-box, .services-box i, .services-box h3, span');
+
+interactiveElements.forEach(el => {
+    el.addEventListener('mouseenter', () => {
+        cursor.classList.add('hovering');
+    });
+    el.addEventListener('mouseleave', () => {
+        cursor.classList.remove('hovering');
+    });
 });

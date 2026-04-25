@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@500;700&display=swap');
 
 #back{
     box-sizing:content-box ;
@@ -12,14 +12,42 @@
     margin: 20px;
     padding: 20px;
     z-index: 3;
+    transition: 0.3s ease;
+}
+
+#back i:hover {
+    text-shadow: 0 0 20px rgba(0, 240, 255, 0.8);
+    transform: scale(1.1);
 }
 
 body{
     margin: 0;
-    background-color: #000;
-    color: #eee;
-    font-family: Poppins;
-    font-size: 12px;
+    background-color: #0b0f19;
+    color: #e2e8f0;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    cursor: none;
+}
+
+/* CUSTOM CURSOR */
+.cursor {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #00f0ff;
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    transition: width 0.3s, height 0.3s, background-color 0.3s, border-color 0.3s;
+    backdrop-filter: invert(1);
+}
+
+.cursor.hovering {
+    width: 50px;
+    height: 50px;
+    background-color: rgba(0, 240, 255, 0.2);
+    border-color: transparent;
 }
 
 a{
@@ -52,20 +80,27 @@ a{
     max-width: 80%;
     left: 50%;
     transform: translateX(-50%);
+    padding: 30px;
     padding-right: 30%;
     box-sizing: border-box;
     color: #fff;
     text-shadow: 0 5px 10px #0004;
+    background: rgba(11, 15, 25, 0.4);
+    backdrop-filter: blur(8px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .slider .list .item .content .title,
 .slider .list .item .content .type{
+    font-family: 'Space Grotesk', sans-serif;
     font-size: 5em;
     font-weight: bold;
     line-height: 1.3em;
 }
 .slider .list .item .type{
-    color: #59B2F4;
+    color: #00f0ff;
+    text-shadow: 0 0 15px rgba(0, 240, 255, 0.6);
 }
 .slider .list .item .button{
     display: grid;
@@ -76,22 +111,35 @@ a{
 }
 .slider .list .item .button button{
     border: none;
-    background-color: #eee;
-    font-family: Poppins;
-    font-weight: 500;
+    background-color: transparent;
+    border: 2px solid #00f0ff;
+    color: #00f0ff;
+    box-shadow: 0 0 15px rgba(0, 240, 255, 0.2);
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
     cursor: pointer;
     transition: 0.4s;
     letter-spacing: 2px;
+    border-radius: 30px;
 }
 
 
 .slider .list .item .button button:hover{
     letter-spacing: 3px;
+    background-color: #00f0ff;
+    color: #0b0f19;
+    box-shadow: 0 0 25px rgba(0, 240, 255, 0.6);
 }
 .slider .list .item .button button:nth-child(2){
     background-color: transparent;
-    border: 1px solid #fff;
-    color: #eee;
+    border: 2px solid #ff0055;
+    color: #ff0055;
+    box-shadow: 0 0 15px rgba(255, 0, 85, 0.2);
+}
+.slider .list .item .button button:nth-child(2):hover{
+    background-color: #ff0055;
+    color: #0b0f19;
+    box-shadow: 0 0 25px rgba(255, 0, 85, 0.6);
 }
 
 
@@ -135,20 +183,24 @@ a{
     align-items: center;
 }
 .nextPrevArrows button{
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
-    background-color: #59B2F4;
-    border: none;
-    color: #fff;
+    background-color: transparent;
+    border: 2px solid #00f0ff;
+    color: #00f0ff;
     font-family: monospace;
     font-weight: bold;
+    font-size: 20px;
     transition: .5s;
     cursor: pointer;
+    backdrop-filter: blur(10px);
 }
 .nextPrevArrows button:hover{
-    background-color: #fff;
-    color: #000;
+    background-color: #00f0ff;
+    color: #0b0f19;
+    box-shadow: 0 0 20px rgba(0, 240, 255, 0.6);
+    transform: scale(1.1);
 }
 
 /* Animation Part */
@@ -295,23 +347,47 @@ img[src="./src/img-viaggi/photo_2024-04-29_20-47-06.jpg"] {
 }
 @media screen and (max-width: 678px) {
     .slider .list .item .content{
-        padding-right: 0;
+        padding: 20px;
+        top: 15%;
+        max-width: 90%;
     }
     .slider .list .item .content .title{
-        font-size: 50px;
+        font-size: 35px;
+    }
+    
+    .slider .list .item .content .type {
+        font-size: 30px;
     }
 
+    .slider .list .item .button{
+        grid-template-columns: repeat(2, 110px);
+    }
+    
     .content{
-        margin-top: -140px;
+        margin-top: 0;
     }
 
     .description{
-        font-weight: bold;
-        
+        font-weight: 500;
+        font-size: 11px;
     }
 
     #back i {
-        font-size: 39px;
+        font-size: 30px;
     }
+    
+    .nextPrevArrows{
+        top: 85%;
+        right: 40%;
+    }
+}
 
+/* TOUCH DEVICE FIX PER IL CURSORE */
+@media (hover: none) and (pointer: coarse) {
+    body {
+        cursor: auto;
+    }
+    .cursor {
+        display: none !important;
+    }
 }

@@ -53,3 +53,22 @@ function moveSlider(direction) {
         }
     }, {once: true}) // Remove the event listener after it's triggered once
 }
+
+// --- CUSTOM CURSOR LOGIC ---
+const cursor = document.querySelector('.cursor');
+
+document.addEventListener('mousemove', (e) => {
+    cursor.style.left = e.clientX + 'px';
+    cursor.style.top = e.clientY + 'px';
+});
+
+const interactiveElements = document.querySelectorAll('button, #back i');
+
+interactiveElements.forEach(el => {
+    el.addEventListener('mouseenter', () => {
+        cursor.classList.add('hovering');
+    });
+    el.addEventListener('mouseleave', () => {
+        cursor.classList.remove('hovering');
+    });
+});
